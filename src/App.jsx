@@ -15,8 +15,14 @@ function App() {
   const [working, setWorking] = useState(false)
   const [message, setMessage] = useState('')
 const [creating, setCreating] = useState(false)
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
+const [fullName, setFullName] = useState('')
+const [profession, setProfession] = useState('')
+const [description, setDescription] = useState('')
+const [whatsapp, setWhatsapp] = useState('')
+const [phone, setPhone] = useState('')
+const [website, setWebsite] = useState('')
+ useEffect(() => {
+   supabase.auth.getSession().then(({ data }) => {
       setSession(data.session)
       setLoading(false)
     })
@@ -72,19 +78,66 @@ const [creating, setCreating] = useState(false)
     return <div className="loading">Cargando ClickOnMe...</div>
   }
 
-  if (creating) {
+ if (creating) {
   return (
     <main className="app">
       <h1>Crear mi ClickOnMe</h1>
       <p>Aquí construiremos tu tarjeta digital.</p>
 
-      <button
-        className="secondary-button"
-        type="button"
-        onClick={() => setCreating(false)}
-      >
-        Volver
-      </button>
+      <form className="create-form">
+        <input
+          type="text"
+          placeholder="Nombre completo"
+          value={fullName}
+          onChange={(e) => setFullName(e.target.value)}
+        />
+
+        <input
+          type="text"
+          placeholder="Profesión o actividad"
+          value={profession}
+          onChange={(e) => setProfession(e.target.value)}
+        />
+
+        <textarea
+          placeholder="Descripción breve"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+
+        <input
+          type="tel"
+          placeholder="WhatsApp"
+          value={whatsapp}
+          onChange={(e) => setWhatsapp(e.target.value)}
+        />
+
+        <input
+          type="tel"
+          placeholder="Teléfono"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+        />
+
+        <input
+          type="url"
+          placeholder="Página web"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+        />
+
+        <button type="button">
+          Crear mi ClickOnMe
+        </button>
+
+        <button
+          type="button"
+          className="secondary-button"
+          onClick={() => setCreating(false)}
+        >
+          Volver
+        </button>
+      </form>
     </main>
   )
 }
