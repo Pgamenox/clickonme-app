@@ -30,21 +30,33 @@ function App() {
   }, [])
 
   if (loading) {
-    return <div>Cargando ClickOnMe...</div>
+    return <div className="loading">Cargando ClickOnMe...</div>
   }
 
   return (
-    <main>
-      <h1>ClickOnMe</h1>
-      <p>Tu contacto, en un solo clic.</p>
+    <main className="app">
+      <header className="hero">
+        <div className="logo">ClickOnMe</div>
+        <div className="tagline">Tu contacto, en un solo clic.</div>
+      </header>
 
-      {profiles.map((profile) => (
-        <section key={profile.id}>
-          <h2>{profile.name}</h2>
-          <p>{profile.role}</p>
-          <p>{profile.description}</p>
-        </section>
-      ))}
+      <div className="profiles">
+        {profiles.map((profile) => (
+          <article className="profile-card" key={profile.id}>
+            <div className="avatar">
+              {profile.name ? profile.name.charAt(0).toUpperCase() : 'C'}
+            </div>
+
+            <div className="profile-info">
+              <h2>{profile.name}</h2>
+              <div className="role">{profile.role}</div>
+              <p>{profile.description}</p>
+            </div>
+
+            <div className="arrow">›</div>
+          </article>
+        ))}
+      </div>
     </main>
   )
 }
