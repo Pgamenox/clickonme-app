@@ -72,6 +72,22 @@ const [creating, setCreating] = useState(false)
     return <div className="loading">Cargando ClickOnMe...</div>
   }
 
+  if (creating) {
+  return (
+    <main className="app">
+      <h1>Crear mi ClickOnMe</h1>
+      <p>Aquí construiremos tu tarjeta digital.</p>
+
+      <button
+        className="secondary-button"
+        type="button"
+        onClick={() => setCreating(false)}
+      >
+        Volver
+      </button>
+    </main>
+  )
+}
   if (session) {
     return (
       <main className="app">
