@@ -93,9 +93,14 @@ function App() {
             Desde aquí podrás crear, editar y publicar tu propia tarjeta digital.
           </p>
 
-          <button className="primary-button" type="button">
-            Crear mi ClickOnMe
-          </button>
+          <button
+  className="primary-button"
+  type="button"
+  onClick={() => window.location.href = '#crear'}
+>
+  Crear mi ClickOnMe
+</button>
+           
 
           <button
             className="secondary-button"
