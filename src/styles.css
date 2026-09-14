@@ -11,6 +11,56 @@ html, body, #root {
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #080b14;
-  color: white;
+  background:
+    radial-gradient(circle at top, #18234f 0%, #0d1430 35%, #070a14 75%);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+h2 {
+  margin-top: 42px;
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+p {
+  color: #cbd2e8;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 32px 18px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  p {
+    font-size: 15px;
+  }
 }
