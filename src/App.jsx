@@ -14,7 +14,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [working, setWorking] = useState(false)
   const [message, setMessage] = useState('')
-
+const [creating, setCreating] = useState(false)
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
       setSession(data.session)
@@ -96,7 +96,7 @@ function App() {
           <button
   className="primary-button"
   type="button"
-  onClick={() => window.location.href = '#crear'}
+  onClick={() => setCreating(true)}
 >
   Crear mi ClickOnMe
 </button>
